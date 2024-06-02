@@ -1,23 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Models\home;
-use App\Models\User;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home.index', ['homes' => home::all()]);
-    // return view('home.index', ['homes' => [
-    //     [
-    //         'gambar-home1' => 'images/slideshow/slide1.jpg'
-    //     ]
-    // ]]);
-    // dd($homes);
 
-
-
-});
+Route::get('/', [HomeController::class, 'HomeSlide']);
 
 Route::get('/pustaka', function () {
     return view('home.pustaka.index');
@@ -44,40 +32,52 @@ Route::get('/liputan', function () {
 });
 
 
-Route::get('/admin', function () {
-    return view('admin.index', ['title' => 'Dashboard']);
-});
+Route::get('/admin', [UserController::class, 'showLoginForm'])
+->name('login');
+
+Route::post('/admin', [UserController::class, 'login']);
+
+Route::post('/logout', [UserController::class, 'logout'])
+->name('logout');
+
+// Route::get('/admin', function () {
+//     return view('admin.login');
+// });
+
+// Route::get('/admin/Dashboard', function () {
+//     return view('admin.index', ['title' => 'Dashboard']);
+// });
 
 Route::get('/admin/Dashboard', function () {
     return view('admin.index', ['title' => 'Dashboard']);
-});
+})->name('home')->middleware('auth');
 
 Route::get('/admin/LihatLiputan', function () {
     return view('admin.LihatLiputan', ['title' => 'Lihat Data Liputan']);
-});
+})->middleware('auth');
 
 Route::get('/admin/EditLiputan', function () {
     return view('admin.EditLiputan', ['title' => 'Edit Data Liputan']);
-});
+})->middleware('auth');
 
 Route::get('/admin/LihatPustaka', function () {
     return view('admin.LihatPustaka', ['title' => 'Lihat Data Pustaka']);
-});
+})->middleware('auth');
 
 Route::get('/admin/EditPustaka', function () {
     return view('admin.EditPustaka', ['title' => 'Edit Data Pustaka']);
-});
+})->middleware('auth');
 
 Route::get('/admin/Users',  [UserController::class, 'users'])
-->name('admin.Users') ;
+->name('admin.Users')->middleware('auth') ;
 
-Route::post('/admin/Users', [UserController::class, 'store']);
+Route::post('/admin/Users', [UserController::class, 'store'])->middleware('auth');
 
 Route::get('/admin/Users/{user}/edit-user', [UserController::class,'edit'])
-->name('admin.edit-user');
+->name('admin.edit-user')->middleware('auth');
 
 Route::put('/admin/Users/{user}', [UserController::class,'update'])
-->name('admin.update');
+->name('admin.update')->middleware('auth');
 
 Route::delete('/admin/Users/{user}', [UserController::class,'destroy'])
-->name('admin.destroy');
+->name('admin.destroy')->middleware('auth');

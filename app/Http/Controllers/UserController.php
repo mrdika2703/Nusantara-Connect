@@ -5,9 +5,40 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function showLoginForm()
+    {
+        return view('admin.login');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        $user = User::where('username', $request->username)->first();
+
+        if ($user && $user->password) {
+            Auth::login($user);
+            return redirect()->route('home');
+        }
+
+        return back()->withErrors(['username' => 'Invalid credentials.']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
+    }
+    
     public function users(Request $request)
     {
         $title = $request->query('title', 'User'); // Mengambil title dari query string, jika tidak ada gunakan default
@@ -31,7 +62,7 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('admin.User')
+            return redirect()->route('admin.Users')
                 ->withErrors($validator)
                 ->withInput()
                 ->with('error', 'Data gagal ditambahkan.');

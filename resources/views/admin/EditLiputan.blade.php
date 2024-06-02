@@ -1,4 +1,4 @@
-<x-admin.layout>
+<x-admin.layouts>
     <x-slot:title>{{ $title }}</x-slot:title>
 
      {{-- <section class="content">
@@ -61,4 +61,4 @@
         <!-- /.container-fluid -->
     </section> --}}
 
-</x-admin.layout>
+</x-admin.layouts>

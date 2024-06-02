@@ -10,11 +10,36 @@
                 aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-            @foreach ($homes as $home)
-                <div class="carousel-item active">
-                    <img src="{{ $home['gambar-home1'] }}" class="d-block w-100" alt="...">
-                </div>
-            @endforeach
+
+            <div class="carousel-item active">
+                @if (!empty($HomeSlide))
+                    @foreach ($HomeSlide as $item)
+                        <img src="{{ $item->gambar_home1 }}" class="d-block w-100" alt="...">
+                    @endforeach
+                @else
+                    <p>No active home found.</p>
+                @endif
+            </div>
+
+            <div class="carousel-item">
+                @if (!empty($HomeSlide))
+                    @foreach ($HomeSlide as $item)
+                        <img src="{{ $item->gambar_home2 }}" class="d-block w-100" alt="...">
+                    @endforeach
+                @else
+                    <p>No active home found.</p>
+                @endif
+            </div>
+
+            <div class="carousel-item">
+                @if (!empty($HomeSlide))
+                    @foreach ($HomeSlide as $item)
+                        <img src="{{ $item->gambar_home3 }}" class="d-block w-100" alt="...">
+                    @endforeach
+                @else
+                    <p>No active home found.</p>
+                @endif
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
@@ -28,7 +53,9 @@
         </button>
     </div>
 
-    <main class="MainContent">
+    <br>
+
+    <main class="fetaure-page">
         <div class="container">
             <div class="container-fluid">
                 <h5>Pustaka Indonesia</h5>
@@ -40,50 +67,40 @@
                     kota-kota di seluruh Indonesia.</p>
 
                 <br>
-
-                <div class="text-center">
-                    <div class="row justify-content-center">
-                        <a href="" class="col">
-                            <div class="card" style="width: 15rem;">
-                                <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title" style="text-decoration: none">Kesenian</h5>
-                                    <p class="card-text" style="text-decoration: none">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="" class="col">
-                            <div class="card" style="width: 15rem;">
-                                <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Kuliner</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="" class="col">
-                            <div class="card" style="width: 15rem;">
-                                <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Tradisi</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </a>
-
-
+                    
+                <div class="row text-center justify-content-center">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                               <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                            <h5 class="mt-3">Tradisi</h5>
+                            <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p> 
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                            <h5 class="mt-3">Kesenian</h5>
+                            <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                                <h5 class="mt-3 text-maroon">Kuiner</h5>
+                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                            </a>
+                            
+                        </div>
                     </div>
                 </div>
-
             </div>
+            
         </div>
 
         <br>
@@ -107,9 +124,9 @@
                 <div class="container-fluid">
                     <div class="row align-items-center" style="color: white">
                         <div class="col">
-                            <div class="">
-                                <h2><b>Gallery</b></h2>
-                                <h1>Indonesia</h1>
+                            <div class="" >
+                                <h2 style="color: white"><b>Gallery</b></h2>
+                                <h1 style="color: white">Indonesia</h1>
                                 <br>
                                 <div style="text-align: justify; padding-right : 85px; margin-right : 85px;">
                                     <p>Budaya Indonesia yang kaya berpadu dengan teknologi yang interaktif: sebuah
@@ -138,37 +155,42 @@
                     <h1 style="color : #770D0D; margin: 25px 0 ;"><b>Jadwal Budaya</b> Indonesia</h1>
                 </div>
 
-                <div class="row justify-content-center">
-                    <div class="spacee card" style="width: 15rem;">
-                        <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Hari Batik</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
+                <div class="row text-center justify-content-center">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                                <h5 class="mt-3">Hari Batik</h5>
+                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                            </a>
                         </div>
                     </div>
-                    <div class="spacee card" style="width: 15rem;">
-                        <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Hari Batik</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                                <h5 class="mt-3">Hari Pancasila</h5>
+                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                            </a>
                         </div>
                     </div>
-                    <div class="spacee card" style="width: 15rem;">
-                        <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Hari Batik</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                                <h5 class="mt-3">Idul Fitri</h5>
+                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                            </a>
+                            
                         </div>
                     </div>
-                    <div class="spacee card" style="width: 15rem;">
-                        <img src="images/slideshow/ex.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Hari Batik</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <a href="">
+                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                                <h5 class="mt-3">Hari Waisak</h5>
+                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                            </a>
                         </div>
                     </div>
                 </div>
