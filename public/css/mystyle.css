@@ -1,0 +1,52 @@
+nav div ul li .active {
+    background-color: #884f4f;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.bg-maroon {
+    color: white; 
+    background-color: #770D0D;
+}
+
+.MainContent {
+    padding: 35px 0;
+}
+
+main > div > p {
+    text-align: justify;
+}
+
+main > div > div > h5 {
+    color: #770D0D;
+    font-weight: bold;
+}
+
+.spacee {
+    margin: 5px 20px;
+}
+
+.visit {
+    background: rgb(71,6,6);
+    background: linear-gradient(0deg, rgba(71,6,6,1) 35%, rgba(138,24,24,1) 100%);
+}
+
+.footer {
+    color: white !important;
+    background: rgb(71,6,6);
+    background: linear-gradient(0deg, rgba(71,6,6,1) 35%, rgba(138,24,24,1) 100%);
+    padding-bottom: 0;
+    margin: 0;
+    bottom: 0;
+}
+
+.line  {
+    height: 2.5px;
+    background-color: white;
+    margin: 25px 0;
+    
+}
+
+.card-title {
+    color: #770D0D;
+}
