@@ -10,6 +10,5 @@
       </div>
     </div>
     
-    
-    </x-admin.layouts>
+  </x-admin.layouts>
         

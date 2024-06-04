@@ -6,7 +6,7 @@
         </button>
 
         <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-            <a class="navbar-brand col-lg-3 me-0" href="#">Nusantara Connect</a>
+            <a class="navbar-brand col-lg-3 me-0" href="#"><strong>Nusantara</strong> Connect</a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
