@@ -19,16 +19,16 @@
           </li>
           <li class="nav-item dropdown">
               <a class="nav-link" data-toggle="dropdown" href="#">
-                  <span>Nama Lengkap</span>
+                  <span>{{ $authhName }}</span>
 
                   <i class="fa-solid fa-circle-user"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                   <p class="dropdown-item">
-                      Nama : Wahyu Adam Anandika
+                      Nama : {{ $authhName }}
                   </p>
                   <p class="dropdown-item">
-                      NIM : 1203220046
+                      NIM : {{ $authhNim }}
                   </p>
                   <p class="dropdown-item">
                       Kelas : IF-02-01

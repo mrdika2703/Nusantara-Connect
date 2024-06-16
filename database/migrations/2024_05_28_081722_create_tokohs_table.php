@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('tokohs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tokoh-daerah')->constrained(
+            $table->foreignId('tokoh_daerah')->constrained(
                 table: 'provinsis', 
                 indexName: 'tokoh_provinsi_id'
             );
-            $table->string('nama-tokoh', length: 255);
-            $table->date('tanggal-lahir');
-            $table->string('penjelasan-tokoh', length: 2555);
-            $table->string('gambar-pustaka', length: 555);
+            $table->string('nama_tokoh', length: 255);
+            $table->date('tanggal_lahir');
+            $table->string('penjelasan_tokoh', length: 2555);
+            $table->string('gambar_tokoh', length: 555);
             $table->timestamps();
         });
     }

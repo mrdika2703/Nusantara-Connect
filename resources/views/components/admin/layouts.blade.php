@@ -1,5 +1,8 @@
 <x-admin.header></x-admin.header>
-<x-admin.navbar>{{ $title }}</x-admin.navbar>
+<x-admin.navbar>{{ $title }}
+    <x-slot:authhName>{{ $authhName}}</x-slot:authhName>
+    <x-slot:authhNim>{{ $authhNim }}</x-slot:authhNim>
+</x-admin.navbar>
 <x-admin.sidebar>{{ $title }}</x-admin.sidebar>
 
 {{ $slot }}

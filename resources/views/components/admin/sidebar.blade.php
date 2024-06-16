@@ -1,13 +1,13 @@
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset('NLogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><strong>Nusantara Admin</strong></span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" >
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -46,35 +46,19 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="/admin/LihatLiputan" class="nav-link {{ request()->is('admin/LihatLiputan') ? 'active' : '' }}">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Lihat Data Liputan
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="/admin/EditLiputan" class="nav-link {{ request()->is('admin/EditLiputan') ? 'active' : '' }}">
               <i class="nav-icon fas fa-pen-to-square"></i>
               <p>
                 Edit Data Liputan
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/LihatPustaka" class="nav-link {{ request()->is('admin/LihatPustaka') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Lihat Data Pustaka
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/EditPustaka" class="nav-link {{ request()->is('admin/EditPustaka') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-pen-to-square"></i>
-              <p>
-                Edit Data Pustaka
               </p>
             </a>
           </li>

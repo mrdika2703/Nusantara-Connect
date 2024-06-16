@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal-liputan');
-            $table->string('nama-liputan', length: 255);
-            $table->string('penjelasan-liputan', length: 2555);
-            $table->string('gambar-jadwal', length: 555);
+            $table->date('tanggal_jadwal');
+            $table->string('nama_jadwal', length: 255);
+            $table->string('gambar_jadwal', length: 555);
             $table->timestamps();
         });
     }

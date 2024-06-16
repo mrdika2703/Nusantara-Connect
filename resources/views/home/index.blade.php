@@ -11,7 +11,7 @@
         </div>
         <div class="carousel-inner">
 
-            <div class="carousel-item active">
+            <div class="carousel-item active ratio ratio-21x9">
                 @if (!empty($HomeSlide))
                     @foreach ($HomeSlide as $item)
                         <img src="{{ $item->gambar_home1 }}" class="d-block w-100" alt="...">
@@ -21,7 +21,7 @@
                 @endif
             </div>
 
-            <div class="carousel-item">
+            <div class="carousel-item ratio ratio-21x9">
                 @if (!empty($HomeSlide))
                     @foreach ($HomeSlide as $item)
                         <img src="{{ $item->gambar_home2 }}" class="d-block w-100" alt="...">
@@ -31,7 +31,7 @@
                 @endif
             </div>
 
-            <div class="carousel-item">
+            <div class="carousel-item ratio ratio-21x9">
                 @if (!empty($HomeSlide))
                     @foreach ($HomeSlide as $item)
                         <img src="{{ $item->gambar_home3 }}" class="d-block w-100" alt="...">
@@ -53,150 +53,190 @@
         </button>
     </div>
 
-    <br>
-
-    <main class="fetaure-page">
+    <section class="section about-page">
         <div class="container">
-            <div class="container-fluid">
-                <h5>Pustaka Indonesia</h5>
-                <h1><b>Map Indonesia</b></h1>
-                <p>Peta Indonesia adalah representasi grafis dari wilayah geografis Indonesia. Biasanya, peta tersebut
-                    mencakup pulau-pulau utama seperti Jawa, Sumatra, Kalimantan, Sulawesi, dan Papua, serta ribuan
-                    pulau
-                    kecil lainnya. Peta tersebut juga menunjukkan batas-batas administratif provinsi, kabupaten, dan
-                    kota-kota di seluruh Indonesia.</p>
+            @if (!empty($tekshome))
+                @foreach ($tekshome as $teks)
+                    <h5 style="color: #770D0D;">Pustaka Indonesia</h5>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h2 class="title-color" style="color: black">{{ $teks->judul_homes }}</h2>
+                        </div>
+                        <div class="col-lg-8">
+                            <p>{{ $teks->penjelasan_homes }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <h5 style="color: #770D0D;">Pustaka Indonesia a</h5>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2 class="title-color" style="color: black">Sejarah Map Indonesia</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, quod laborum alias. Vitae
+                            dolorum, officia sit! Saepe ullam facere at, consequatur incidunt, quae esse, quis ut
+                            reprehenderit dignissimos, libero delectus.</p>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </section>
 
-                <br>
-                    
-                <div class="row text-center justify-content-center">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                               <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                            <h5 class="mt-3">Tradisi</h5>
-                            <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p> 
-                            </a>
+    <section class="fetaure-page ">
+        <div class="container">
+            <div class="row text-center justify-content-center">
+                
+                @forelse ($budaya as $budayaItem)
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-block-item mb-5 mb-lg-0">
+                        <div class="ratio ratio-4x3">
+                            <img 
+                            @if (!empty($budayaItem->gambar_pustaka))
+                            src="{{ asset($budayaItem->gambar_pustaka) }}"
+                            @else
+                            src="{{ asset('images/slideshow/ex.png') }}"
+                            @endif
+                            alt="images" class="img-fluid">
                         </div>
+                        
+                        <a href="{{ route('home.pustaka.detil', ['pustaka' => $budayaItem->id]) }}">
+                            <h4 class="mt-3">{{ $budayaItem->nama_pustaka }}</h4>
+                        </a>
+                        <p>{{ Str::limit($budayaItem->penjelasan_pustaka, 55) }}</p>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                            <h5 class="mt-3">Kesenian</h5>
-                            <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                            </a>
-                            
-                        </div>
+                </div>
+                @empty
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-block-item mb-5 mb-lg-0">
+                        <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                        <a href="">
+                            <h4 class="mt-3">Tradisi</h4>
+                        </a>
+                        <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                                <h5 class="mt-3 text-maroon">Kuiner</h5>
-                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                            </a>
-                            
-                        </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-block-item mb-5 mb-lg-0">
+                        <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                        <a href="">
+                            <h4 class="mt-3">Kesenian</h4>
+                        </a>
+                        <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-block-item mb-5 mb-lg-0">
+                        <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
+                        <a href="">
+                            <h4 class="mt-3">Kuliner</h4>
+                        </a>
+                        <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
+                    </div>
+                </div>
+                @endforelse
+
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+
+    <section class="section testimonial visit" style="padding: 15 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6">
+                    <div class="section-title">
+                        <h4 style="color: white">Kunjungi</h4>
+                        <h2 class="mb-4" style="color: white">Gallery Indonesia Kaya</h2>
+                        <div class="divider  my-4" style="background: white;"></div>
                     </div>
                 </div>
             </div>
-            
-        </div>
-
-        <br>
-
-        <div class="visit">
-            <br>
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-4">
-                        <h2 style="color: white">Kunjungi</h2>
-                    </div>
-                    <div class="col-4">
-                        <div class="row float-right">
-                            <a href="" class="btn btn-light btn-md">Cek Lokasi</a>
-                        </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 offset-lg-6">
+                    <p style="color: white">
+                        Galeri Indonesia Kaya merupakan ruang edutainment budaya persembahan Bakti Budaya Djarum
+                        Foundation yang berbasis teknologi digital dari Indonesia untuk Indonesia yang menyuguhkan
+                        informasi kekayaan budaya nusantara. Mulai dari alat musik tradisional, mainan tradisional, baju
+                        adat, sampai informasi tentang kuliner, pariwisata, tradisi dan kesenian dikemas secara digital
+                        dan interaktif di tempat pertunjukan ini.
+                    </p>
+                    <p style="color: white">
+                        Terletak di Grand Indonesia, Galeri Indonesia Kaya menawarkan alternatif dalam mempelajari
+                        tradisi budaya Indonesia dengan cara yang lebih modern, menyenangkan, mudah dan gratis.
+                    </p>
+                    <div class="">
+                        <a href="https://maps.app.goo.gl/xrYr7DR1v5e2VUL58" class="btnVisit">
+                            <h4>Cek Lokasi<i class="icofont-simple-right ml-2 "></i></h4>
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="line"></div>
+    <section class="section team">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center">
+                        <h2 class="mb-4">Jadwal Budaya Indonesia</h2>
+                        <div class="divider mx-auto my-4"></div>
+                        <p>Hari hari budaya yang harus diikuti oleh masyarakat indonesai untuk melestarikan budaya
+                            indonesia supaya tidak berhenti di kita</p>
+                    </div>
+                </div>
+            </div>
 
-                <div class="container-fluid">
-                    <div class="row align-items-center" style="color: white">
-                        <div class="col">
-                            <div class="" >
-                                <h2 style="color: white"><b>Gallery</b></h2>
-                                <h1 style="color: white">Indonesia</h1>
-                                <br>
-                                <div style="text-align: justify; padding-right : 85px; margin-right : 85px;">
-                                    <p>Budaya Indonesia yang kaya berpadu dengan teknologi yang interaktif: sebuah
-                                        galeri yang menyenangkan untuk dijajaki.</p>
+            <div class="row">
+                @if (!empty($jadwals))
+                    @forelse ($jadwals as $jadwals)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="about-block-item mb-5 mb-lg-0">
+                                <div class=" ratio ratio-4x3">
+                                    <img src="{{ asset($jadwals->gambar_jadwal) }}" alt="image" class="img-fluid w-100">
                                 </div>
-                            </div>
-
-                        </div>
-                        <div class="col">
-                            <div class="">
-                                <img src="images/slideshow/ex.png" class="img-fluid rounded" alt="...">
+                                
+                                <h4 class="mt-3">{{ $jadwals->nama_jadwal }}</h4>
+                                <p>{{ \Carbon\Carbon::parse($jadwals->tanggal_jadwal)->translatedFormat('d F Y') }}</p>
                             </div>
                         </div>
+                    @empty
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <img src="images/slideshow/ex.png" alt="" class="img-fluid w-100">
+                            <h4 class="mt-3">Hari Batik</h4>
+                            <p>22 Desember 2024</p>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <br>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <img src="images/slideshow/ex.png" alt="" class="img-fluid w-100">
+                            <h4 class="mt-3">Hari Batik</h4>
+                            <p>22 Desember 2024</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <img src="images/slideshow/ex.png" alt="" class="img-fluid w-100">
+                            <h4 class="mt-3">Hari Batik</h4>
+                            <p>22 Desember 2024</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="about-block-item mb-5 mb-lg-0">
+                            <img src="images/slideshow/ex.png" alt="" class="img-fluid w-100">
+                            <h4 class="mt-3">Hari Batik</h4>
+                            <p>22 Desember 2024</p>
+                        </div>
+                    </div>
+                    @endforelse
+                @else
+                
+                @endif
             </div>
         </div>
-
-        <br>
-
-        <div class="container">
-            <div class="text-center">
-                <div class=" container-fluid">
-                    <h1 style="color : #770D0D; margin: 25px 0 ;"><b>Jadwal Budaya</b> Indonesia</h1>
-                </div>
-
-                <div class="row text-center justify-content-center">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                                <h5 class="mt-3">Hari Batik</h5>
-                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                                <h5 class="mt-3">Hari Pancasila</h5>
-                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                                <h5 class="mt-3">Idul Fitri</h5>
-                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                            </a>
-                            
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="about-block-item mb-5 mb-lg-0">
-                            <a href="">
-                                <img src="images/slideshow/ex.png" alt="" class="img-fluid w-75">
-                                <h5 class="mt-3">Hari Waisak</h5>
-                                <p>Voluptate aperiam esse possimus maxime repellendus, nihil quod accusantium .</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main>
+    </section>
 
     </x-home>

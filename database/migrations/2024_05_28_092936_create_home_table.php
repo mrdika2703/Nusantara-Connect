@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('home', function (Blueprint $table) {
             $table->id();
-            $table->string('judul_home', length: 255);
-            $table->string('penjelasan_home', length: 2555);
             $table->string('gambar_home1', length: 555);
             $table->string('gambar_home2', length: 555);
             $table->string('gambar_home3', length: 555);

@@ -1,5 +1,7 @@
 <x-admin.layouts>
     <x-slot:title>{{ $title }}</x-slot:title>
+    <x-slot:authhName>{{ $authh->name }}</x-slot:authhName>
+    <x-slot:authhNim>{{ $authh->nim }}</x-slot:authhNim>
 
     @if (session('success'))
         <script>
@@ -82,12 +84,6 @@
                                             <td class="text-center">
                                                 <a href="{{ route('admin.edit-user', ['user' => $user->id]) }}"
                                                     class="btn btn-sm btn-primary btn-edit" type="button">Edit</a>
-                                                {{-- <button class="btn btn-sm btn-primary btn-edit" type="button" data-toggle="modal"
-                                            data-target="#modal-edit-user" data-id="{{ $user->id }}" data-username="{{ $user->username }}"
-                                            data-name="{{ $user->name }}" data-gender="{{ $user->gender }}" data-nim="{{ $user->nim }}"
-                                            data-email="{{ $user->email }}">
-                                                Edit
-                                            </button> --}}
                                                 <form method="POST" action="{{ route('admin.destroy', ['user' => $user->id]) }}" class="d-inline delete-form">
                                                     @method('DELETE')
                                                     @csrf

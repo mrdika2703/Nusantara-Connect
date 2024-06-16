@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('pustakas', function (Blueprint $table) {
             $table->id();
-            $table->enum('jenis-budaya', ['tradisi', 'kesenian', 'kuliner']);
+            $table->enum('jenis_budaya', ['tradisi', 'kesenian', 'kuliner']);
             // $table->integer('kategori-daerah')->unique();
-            $table->foreignId('pustaka-daerah')->constrained(
+            $table->foreignId('pustaka_daerah')->constrained(
                 table: 'provinsis',
                 indexName: 'pustaka_provinsi_id'
             );
-            $table->string('nama-pustaka', length: 255);
-            $table->string('penjelasan-pustaka', length: 2555);
-            $table->string('gambar-pustaka', length: 555);
+            $table->string('nama_pustaka', length: 255);
+            $table->string('penjelasan_pustaka', length: 2555);
+            $table->string('gambar_pustaka', length: 555);
             $table->timestamps();
         });
     }
